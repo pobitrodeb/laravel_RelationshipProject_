@@ -13,7 +13,7 @@
     <section class="py-5">
         <div class="container">
             <div class="card border-0">
-                <div class="card-header text-center"> Eloquent Relationship  </div>
+                <div class="card-header text-center"> Eloquent Relationship | One To One Relationship  </div>
                 <div class="card-body">
                     <table class="table table-bordered text-center">
                         <thead>
@@ -24,11 +24,13 @@
                         </tr>
                         </thead>
                         <tboady>
+                            @foreach($users as $user)
                             <tr>
-                                <td> 01</td>
-                                <td> Pobitrodeb </td>
-                                <td> 245152454 </td>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->phone->name}}</td>
                             </tr>
+                            @endforeach
                         </tboady>
                     </table>
                 </div>
