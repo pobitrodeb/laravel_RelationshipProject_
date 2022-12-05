@@ -36,6 +36,32 @@
                 </div>
             </div>
 
+            <div class="card border-0">
+                <div class="card-header text-center"> Eloquent Relationship | One To Many Relationship  </div>
+                <div class="card-body">
+                    <table class="table table-bordered text-center">
+                        <thead class="bg-primary text-white">
+                        <tr>
+                            <td> Sl </td>
+                            <td> Post title  </td>
+                            <td rowspan="2"> Post Comments </td>
+                        </tr>
+                        </thead>
+                        <tboady>
+                            @foreach($posts as $post)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$post->title}}</td>
+                               @foreach($post->comments as $comment)
+                               <td>{{$comment->message}}</td>
+                               @endforeach
+                            </tr>
+                            @endforeach
+                        </tboady>
+                    </table>
+                </div>
+            </div>
+
         </div>
     </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
