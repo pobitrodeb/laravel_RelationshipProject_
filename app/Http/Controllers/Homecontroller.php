@@ -27,11 +27,15 @@ class Homecontroller extends Controller
 
          $posts = Post::with('comments')->get(); 
          //return $posts; 
- 
+
+        // Many To Many
+            $posts = Post::with('categories')->get(); 
+          //  return $posts;
 
         return view('frontend.home.index',[
             'users' => User::all(),
             'posts' => Post::with('comments')->get(),
+            'allposts' => Post::with('categories')->get(),
         ]);
     }
 }
