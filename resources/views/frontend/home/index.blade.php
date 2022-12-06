@@ -75,14 +75,41 @@
                         </thead>
                         <tboady>
                             @foreach($allposts as $postsInfo)
-                                <tr>
-                                    <td>{{$loop->iteration}}</td>
+                                <tr><td>{{$loop->iteration}}</td>
                                     <td>{{$postsInfo->title}}</td>
                                     @foreach($postsInfo->categories as $categories)
                                     <td>{{$categories->name}}</td>
                                     @endforeach
                                 </tr>
                             @endforeach
+                        </tboady>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="card border-0">
+                <div class="card-header text-center"> Eloquent Relationship | Has One Through Relationship  </div>
+                <div class="card-body">
+                    <table class="table table-bordered text-center">
+                        <thead class="bg-primary text-white">
+                        <tr>
+                            <td> Sl </td>
+                            <td> Mechanic  </td>
+                            <td> Car Model </td>
+                            <td> Car Ownner </td>
+                          
+                        </tr>
+                        </thead>
+                        <tboady>
+                           @foreach($mechanics as $mechanic)
+                                <tr>
+                                      <td>{{$loop->iteration}}</td>
+                                      <td>{{$mechanic->name}}</td>
+                                      <td>{{$mechanic->car->model}}</td>
+                                    <td>{{$mechanic->carOwner->name}}</td>
+                                </tr>
+                           @endforeach
                         </tboady>
                     </table>
                 </div>

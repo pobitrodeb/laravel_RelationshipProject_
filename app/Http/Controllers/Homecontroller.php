@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Phone;
 use App\Models\User;
 use App\Models\Comment;
+use App\Models\Mechanic;
 use App\Models\Post;
 
 class Homecontroller extends Controller
@@ -29,13 +30,19 @@ class Homecontroller extends Controller
          //return $posts; 
 
         // Many To Many
-            $posts = Post::with('categories')->get(); 
+          //  $posts = Post::with('categories')->get(); 
           //  return $posts;
+
+
+          // Has One Through
+          // $mechanic = Mechanic::with('carOwner')->get(); 
+          // return $mechanic;
 
         return view('frontend.home.index',[
             'users' => User::all(),
             'posts' => Post::with('comments')->get(),
             'allposts' => Post::with('categories')->get(),
+            'mechanics' => Mechanic::with('carOwner')->get(),
         ]);
     }
 }
